@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "566334497298",
+    "project_id": "dumy-93766",
+    "storage_bucket": "dumy-93766.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:566334497298:android:6071bb517b7f282f542ecb",
+        "android_client_info": {
+          "package_name": "com.example.desimart"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAuyWwznj0urZ0sj6AGr-qmmCBRVCqfaZY"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
