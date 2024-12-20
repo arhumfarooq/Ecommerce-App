@@ -1,3 +1,4 @@
+import 'package:desimart/classes/container.dart';
 import 'package:desimart/data/global_list.dart';
 import 'package:desimart/model/cart_model.dart';
 import 'package:desimart/screen2/cart.dart';
@@ -46,446 +47,88 @@ class _eggsState extends State<eggs> {
               icon: Icon(Icons.shopping_bag_outlined))
         ],
       ),
-      body: Padding(
-        padding: const EdgeInsets.symmetric(horizontal: 20),
-        child: Column(
-          children: [
-            SingleChildScrollView(
-              scrollDirection: Axis.horizontal,
-              child: Row(
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                children: [
-                  Container(
-                    width: 174,
-                    height: 248,
-                    decoration: BoxDecoration(
-                        color: Colors.white,
-                        borderRadius: BorderRadius.circular(18),
-                        boxShadow: [
-                          BoxShadow(
-                            color: Colors.blueGrey.withOpacity(0.3),
-                            spreadRadius: 0.4,
-                          )
-                        ],
-                        border: Border.all(color: Colors.blueGrey, width: 0.7)),
-                    child: Column(
-                      children: [
-                        Expanded(child: Image.asset('assets/red.png')),
-                        Expanded(
-                          child: Padding(
-                            padding: const EdgeInsets.symmetric(horizontal: 15),
-                            child: Column(
-                              mainAxisAlignment: MainAxisAlignment.start,
-                              crossAxisAlignment: CrossAxisAlignment.start,
-                              children: [
-                                Text(
-                                  'Red Egg',
-                                  style: GoogleFonts.poppins(
-                                      fontSize: 20,
-                                      fontWeight: FontWeight.w600,
-                                      color: Colors.black),
-                                ),
-                                Text(
-                                  '4pcs ,Price',
-                                  style: GoogleFonts.poppins(
-                                      fontSize: 14, color: Color(0xff7C7C7C)),
-                                ),
-                                Row(
-                                  mainAxisAlignment:
-                                      MainAxisAlignment.spaceBetween,
-                                  children: [
-                                    Text(
-                                      "\$2.99",
-                                      style: GoogleFonts.poppins(
-                                          fontWeight: FontWeight.w600,
-                                          fontSize: 18,
-                                          color: Colors.black),
-                                    ),
-                                    FloatingActionButton(
-                                      onPressed: () {
-                                        addToCart(
-                                            "Red Egg", 2.99, 'assets/red.png');
-                                      },
-                                      child: Icon(
-                                        Icons.add,
-                                        color: Colors.white,
-                                      ),
-                                      backgroundColor: Color(0xff53B175),
-                                    )
-                                  ],
-                                )
-                              ],
-                            ),
-                          ),
-                        )
-                      ],
+      body: SingleChildScrollView(
+        child: Padding(
+          padding: const EdgeInsets.symmetric(horizontal: 20),
+          child: Column(
+            children: [
+              SingleChildScrollView(
+                scrollDirection: Axis.horizontal,
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: [
+                    products(
+                        image1: 'assets/red.png',
+                        name: 'Red Egg',
+                        price: "\$2.99",
+                        price1: 2.99,
+                        kg: '4pcs ,Price'),
+                    SizedBox(
+                      width: 20,
                     ),
-                  ),
-                  SizedBox(
-                    width: 20,
-                  ),
-                  Container(
-                    width: 174,
-                    height: 248,
-                    decoration: BoxDecoration(
-                        color: Colors.white,
-                        borderRadius: BorderRadius.circular(18),
-                        boxShadow: [
-                          BoxShadow(
-                            color: Colors.blueGrey.withOpacity(0.3),
-                            spreadRadius: 0.4,
-                          )
-                        ],
-                        border: Border.all(color: Colors.blueGrey, width: 0.7)),
-                    child: Column(
-                      children: [
-                        Expanded(child: Image.asset('assets/white.png')),
-                        Expanded(
-                          child: Padding(
-                            padding: const EdgeInsets.symmetric(horizontal: 15),
-                            child: Column(
-                              mainAxisAlignment: MainAxisAlignment.start,
-                              crossAxisAlignment: CrossAxisAlignment.start,
-                              children: [
-                                Text(
-                                  'White Egg',
-                                  style: GoogleFonts.poppins(
-                                      fontSize: 20,
-                                      fontWeight: FontWeight.w600,
-                                      color: Colors.black),
-                                ),
-                                Text(
-                                  '180gm,Price',
-                                  style: GoogleFonts.poppins(
-                                      fontSize: 14, color: Color(0xff7C7C7C)),
-                                ),
-                                Row(
-                                  mainAxisAlignment:
-                                      MainAxisAlignment.spaceBetween,
-                                  children: [
-                                    Text(
-                                      "\$1.50",
-                                      style: GoogleFonts.poppins(
-                                          fontWeight: FontWeight.w600,
-                                          fontSize: 18,
-                                          color: Colors.black),
-                                    ),
-                                    FloatingActionButton(
-                                      onPressed: () {
-                                        addToCart("White Egg", 1.50,
-                                            'assets/white.png');
-                                      },
-                                      child: Icon(
-                                        Icons.add,
-                                        color: Colors.white,
-                                      ),
-                                      backgroundColor: Color(0xff53B175),
-                                    )
-                                  ],
-                                )
-                              ],
-                            ),
-                          ),
-                        )
-                      ],
-                    ),
-                  ),
-                ],
+                    products(
+                        image1: 'assets/white.png',
+                        name: 'White Egg',
+                        price: '1.50',
+                        price1: 1.50,
+                        kg: '180gm,Price')
+                  ],
+                ),
               ),
-            ),
-            SizedBox(
-              height: 10,
-            ),
-            SingleChildScrollView(
-              scrollDirection: Axis.horizontal,
-              child: Row(
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                children: [
-                  Container(
-                    width: 174,
-                    height: 248,
-                    decoration: BoxDecoration(
-                        color: Colors.white,
-                        borderRadius: BorderRadius.circular(18),
-                        boxShadow: [
-                          BoxShadow(
-                            color: Colors.blueGrey.withOpacity(0.3),
-                            spreadRadius: 0.4,
-                          )
-                        ],
-                        border: Border.all(color: Colors.blueGrey, width: 0.7)),
-                    child: Column(
-                      children: [
-                        Expanded(child: Image.asset('assets/s.png')),
-                        Expanded(
-                          child: Padding(
-                            padding: const EdgeInsets.symmetric(horizontal: 15),
-                            child: Column(
-                              mainAxisAlignment: MainAxisAlignment.start,
-                              crossAxisAlignment: CrossAxisAlignment.start,
-                              children: [
-                                Text(
-                                  'Egg Pasta',
-                                  style: GoogleFonts.poppins(
-                                      fontSize: 20,
-                                      fontWeight: FontWeight.w600,
-                                      color: Colors.black),
-                                ),
-                                Text(
-                                  '30gm ,Price',
-                                  style: GoogleFonts.poppins(
-                                      fontSize: 14, color: Color(0xff7C7C7C)),
-                                ),
-                                Row(
-                                  mainAxisAlignment:
-                                      MainAxisAlignment.spaceBetween,
-                                  children: [
-                                    Text(
-                                      "\$15.99",
-                                      style: GoogleFonts.poppins(
-                                          fontWeight: FontWeight.w600,
-                                          fontSize: 18,
-                                          color: Colors.black),
-                                    ),
-                                    FloatingActionButton(
-                                      onPressed: () {
-                                        addToCart(
-                                            "Egg Pasta", 15.99, 'assets/s.png');
-                                      },
-                                      child: Icon(
-                                        Icons.add,
-                                        color: Colors.white,
-                                      ),
-                                      backgroundColor: Color(0xff53B175),
-                                    )
-                                  ],
-                                )
-                              ],
-                            ),
-                          ),
-                        )
-                      ],
-                    ),
-                  ),
-                  SizedBox(
-                    width: 20,
-                  ),
-                  Container(
-                    width: 174,
-                    height: 248,
-                    decoration: BoxDecoration(
-                        color: Colors.white,
-                        borderRadius: BorderRadius.circular(18),
-                        boxShadow: [
-                          BoxShadow(
-                            color: Colors.blueGrey.withOpacity(0.3),
-                            spreadRadius: 0.4,
-                          )
-                        ],
-                        border: Border.all(color: Colors.blueGrey, width: 0.7)),
-                    child: Column(
-                      children: [
-                        Expanded(child: Image.asset('assets/nood.png')),
-                        Expanded(
-                          child: Padding(
-                            padding: const EdgeInsets.symmetric(horizontal: 15),
-                            child: Column(
-                              mainAxisAlignment: MainAxisAlignment.start,
-                              crossAxisAlignment: CrossAxisAlignment.start,
-                              children: [
-                                Text(
-                                  'Egg Noodles',
-                                  style: GoogleFonts.poppins(
-                                      fontSize: 20,
-                                      fontWeight: FontWeight.w600,
-                                      color: Colors.black),
-                                ),
-                                Text(
-                                  '2L,Price',
-                                  style: GoogleFonts.poppins(
-                                      fontSize: 14, color: Color(0xff7C7C7C)),
-                                ),
-                                Row(
-                                  mainAxisAlignment:
-                                      MainAxisAlignment.spaceBetween,
-                                  children: [
-                                    Text(
-                                      "\$15.99",
-                                      style: GoogleFonts.poppins(
-                                          fontWeight: FontWeight.w600,
-                                          fontSize: 18,
-                                          color: Colors.black),
-                                    ),
-                                    FloatingActionButton(
-                                      onPressed: () {
-                                        addToCart("Egg Noodles", 15.99,
-                                            'assets/nood.png');
-                                      },
-                                      child: Icon(
-                                        Icons.add,
-                                        color: Colors.white,
-                                      ),
-                                      backgroundColor: Color(0xff53B175),
-                                    )
-                                  ],
-                                )
-                              ],
-                            ),
-                          ),
-                        )
-                      ],
-                    ),
-                  ),
-                ],
+              SizedBox(
+                height: 10,
               ),
-            ),
-            SizedBox(
-              height: 10,
-            ),
-            SingleChildScrollView(
-              scrollDirection: Axis.horizontal,
-              child: Row(
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                children: [
-                  Container(
-                    width: 174,
-                    height: 248,
-                    decoration: BoxDecoration(
-                        color: Colors.white,
-                        borderRadius: BorderRadius.circular(18),
-                        boxShadow: [
-                          BoxShadow(
-                            color: Colors.blueGrey.withOpacity(0.3),
-                            spreadRadius: 0.4,
-                          )
-                        ],
-                        border: Border.all(color: Colors.blueGrey, width: 0.7)),
-                    child: Column(
-                      children: [
-                        Expanded(child: Image.asset('assets/mayo.png')),
-                        Expanded(
-                          child: Padding(
-                            padding: const EdgeInsets.symmetric(horizontal: 15),
-                            child: Column(
-                              mainAxisAlignment: MainAxisAlignment.start,
-                              crossAxisAlignment: CrossAxisAlignment.start,
-                              children: [
-                                Text(
-                                  'Egg Mayo',
-                                  style: GoogleFonts.poppins(
-                                      fontSize: 20,
-                                      fontWeight: FontWeight.w600,
-                                      color: Colors.black),
-                                ),
-                                Text(
-                                  '500gm ,Price',
-                                  style: GoogleFonts.poppins(
-                                      fontSize: 14, color: Color(0xff7C7C7C)),
-                                ),
-                                Row(
-                                  mainAxisAlignment:
-                                      MainAxisAlignment.spaceBetween,
-                                  children: [
-                                    Text(
-                                      "\$15.24",
-                                      style: GoogleFonts.poppins(
-                                          fontWeight: FontWeight.w600,
-                                          fontSize: 18,
-                                          color: Colors.black),
-                                    ),
-                                    FloatingActionButton(
-                                      onPressed: () {
-                                        addToCart("Egg Mayo", 15.24,
-                                            'assets/mayo.png');
-                                      },
-                                      child: Icon(
-                                        Icons.add,
-                                        color: Colors.white,
-                                      ),
-                                      backgroundColor: Color(0xff53B175),
-                                    )
-                                  ],
-                                )
-                              ],
-                            ),
-                          ),
-                        )
-                      ],
+              SingleChildScrollView(
+                scrollDirection: Axis.horizontal,
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: [
+                    products(
+                        image1: 'assets/s.png',
+                        name: 'Egg Pasta',
+                        price: '15.99',
+                        price1: 15.99,
+                        kg: '30gm ,Price'),
+                    SizedBox(
+                      width: 20,
                     ),
-                  ),
-                  SizedBox(
-                    width: 20,
-                  ),
-                  Container(
-                    width: 174,
-                    height: 248,
-                    decoration: BoxDecoration(
-                        color: Colors.white,
-                        borderRadius: BorderRadius.circular(18),
-                        boxShadow: [
-                          BoxShadow(
-                            color: Colors.blueGrey.withOpacity(0.3),
-                            spreadRadius: 0.4,
-                          )
-                        ],
-                        border: Border.all(color: Colors.blueGrey, width: 0.7)),
-                    child: Column(
-                      children: [
-                        Expanded(child: Image.asset('assets/pas.png')),
-                        Expanded(
-                          child: Padding(
-                            padding: const EdgeInsets.symmetric(horizontal: 15),
-                            child: Column(
-                              mainAxisAlignment: MainAxisAlignment.start,
-                              crossAxisAlignment: CrossAxisAlignment.start,
-                              children: [
-                                Text(
-                                  'Egg Speg',
-                                  style: GoogleFonts.poppins(
-                                      fontSize: 20,
-                                      fontWeight: FontWeight.w600,
-                                      color: Colors.black),
-                                ),
-                                Text(
-                                  '250gm,Price',
-                                  style: GoogleFonts.poppins(
-                                      fontSize: 14, color: Color(0xff7C7C7C)),
-                                ),
-                                Row(
-                                  mainAxisAlignment:
-                                      MainAxisAlignment.spaceBetween,
-                                  children: [
-                                    Text(
-                                      "\$4.49",
-                                      style: GoogleFonts.poppins(
-                                          fontWeight: FontWeight.w600,
-                                          fontSize: 18,
-                                          color: Colors.black),
-                                    ),
-                                    FloatingActionButton(
-                                      onPressed: () {
-                                        addToCart(
-                                            "Egg Speg", 4.49, 'assets/pas.png');
-                                      },
-                                      child: Icon(
-                                        Icons.add,
-                                        color: Colors.white,
-                                      ),
-                                      backgroundColor: Color(0xff53B175),
-                                    )
-                                  ],
-                                )
-                              ],
-                            ),
-                          ),
-                        )
-                      ],
-                    ),
-                  ),
-                ],
+                    products(
+                        image1: 'assets/nood.png',
+                        name: 'Egg Noodles',
+                        price: '15.99',
+                        price1: 15.99,
+                        kg: '2L,Price')
+                  ],
+                ),
               ),
-            ),
-          ],
+              SizedBox(
+                height: 10,
+              ),
+              SingleChildScrollView(
+                scrollDirection: Axis.horizontal,
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: [
+                    products(
+                        image1: 'assets/mayo.png',
+                        name: 'Egg Mayo',
+                        price: '15.24',
+                        price1: 15.24,
+                        kg: '500gm ,Price'),
+                    SizedBox(
+                      width: 20,
+                    ),
+                    products(
+                        image1: 'assets/pas.png',
+                        name: 'Egg Speg',
+                        price: '4.49',
+                        price1: 4.49,
+                        kg: '250gm,Price')
+                  ],
+                ),
+              ),
+            ],
+          ),
         ),
       ),
     );

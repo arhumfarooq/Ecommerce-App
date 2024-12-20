@@ -4,7 +4,8 @@ import 'package:flutter/services.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 class Verify extends StatefulWidget {
-  const Verify({super.key});
+  final String verificationid;
+  const Verify({super.key, required this.verificationid});
 
   @override
   State<Verify> createState() => _VerifyState();

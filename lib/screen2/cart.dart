@@ -2,6 +2,7 @@ import 'dart:math';
 
 import 'package:desimart/data/global_list.dart';
 import 'package:desimart/model/cart_model.dart';
+import 'package:desimart/screen2/checkout.dart';
 import 'package:desimart/screen2/last.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
@@ -54,80 +55,104 @@ class _CartState extends State<Cart> {
                 itemCount: cart.length,
                 itemBuilder: (context, index) {
                   final item = cart[index];
-                  return Container(
-                    margin: const EdgeInsets.symmetric(vertical: 10),
-                    padding: const EdgeInsets.all(8),
-                    decoration: BoxDecoration(
-                      color: Colors.grey[100],
-                      borderRadius: BorderRadius.circular(10),
-                      border: Border.all(color: Colors.grey.shade300),
-                    ),
-                    height: 140,
-                    child: Row(
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      children: [
-                        Image.asset(
-                          item.proImage,
-                          height: 80,
-                          width: 80,
-                          fit: BoxFit.cover,
+                  return Stack(
+                    children: [
+                      Container(
+                        margin: const EdgeInsets.symmetric(vertical: 10),
+                        padding: const EdgeInsets.all(8),
+                        decoration: BoxDecoration(
+                          color: Colors.grey[100],
+                          borderRadius: BorderRadius.circular(10),
+                          border: Border.all(color: Colors.grey.shade300),
                         ),
-                        const SizedBox(width: 10),
-                        Expanded(
-                          child: Column(
-                            crossAxisAlignment: CrossAxisAlignment.start,
-                            children: [
-                              Text(
-                                item.name,
-                                style: const TextStyle(
-                                  fontSize: 16,
-                                  fontWeight: FontWeight.bold,
-                                ),
-                              ),
-                              const SizedBox(height: 5),
-                              Text('Price: ${item.price} x ${item.quantity}'),
-                              const Spacer(),
-                              Text('Total: ${item.price * item.quantity}'),
-                            ],
-                          ),
-                        ),
-                        Column(
-                          mainAxisAlignment: MainAxisAlignment.center,
+                        height: 140,
+                        child: Row(
+                          crossAxisAlignment: CrossAxisAlignment.start,
                           children: [
-                            ElevatedButton(
-                              onPressed: () {
-                                setState(() {
-                                  item.quantity++;
-                                });
-                              },
-                              child: const Icon(Icons.add, color: Colors.white),
-                              style: ElevatedButton.styleFrom(
-                                shape: RoundedRectangleBorder(
-                                  borderRadius: BorderRadius.circular(50),
-                                ),
-                                backgroundColor: const Color(0xff53B175),
+                            Image.asset(
+                              item.proImage,
+                              height: 80,
+                              width: 80,
+                              fit: BoxFit.cover,
+                            ),
+                            const SizedBox(width: 10),
+                            Expanded(
+                              child: Column(
+                                crossAxisAlignment: CrossAxisAlignment.start,
+                                children: [
+                                  Text(
+                                    item.name,
+                                    style: const TextStyle(
+                                      fontSize: 16,
+                                      fontWeight: FontWeight.bold,
+                                    ),
+                                  ),
+                                  const SizedBox(height: 5),
+                                  Text(
+                                      'Price: ${item.price} x ${item.quantity}'),
+                                  const Spacer(),
+                                  Text('Total: ${item.price * item.quantity}'),
+                                ],
                               ),
                             ),
-                            Text('${item.quantity}'),
-                            ElevatedButton(
-                              onPressed: () {
-                                setState(() {
-                                  if (item.quantity > 1) item.quantity--;
-                                });
-                              },
-                              child:
-                                  const Icon(Icons.remove, color: Colors.white),
-                              style: ElevatedButton.styleFrom(
-                                shape: RoundedRectangleBorder(
-                                  borderRadius: BorderRadius.circular(50),
-                                ),
-                                backgroundColor: const Color(0xff53B175),
+                            Padding(
+                              padding: const EdgeInsets.only(top: 5),
+                              child: Column(
+                                mainAxisAlignment: MainAxisAlignment.center,
+                                children: [
+                                  ElevatedButton(
+                                    onPressed: () {
+                                      setState(() {
+                                        item.quantity++;
+                                      });
+                                    },
+                                    child: const Icon(Icons.add,
+                                        color: Colors.white),
+                                    style: ElevatedButton.styleFrom(
+                                      shape: RoundedRectangleBorder(
+                                        borderRadius: BorderRadius.circular(50),
+                                      ),
+                                      backgroundColor: const Color(0xff53B175),
+                                    ),
+                                  ),
+                                  Text('${item.quantity}'),
+                                  ElevatedButton(
+                                    onPressed: () {
+                                      setState(() {
+                                        if (item.quantity > 1) item.quantity--;
+                                      });
+                                    },
+                                    child: const Icon(Icons.remove,
+                                        color: Colors.white),
+                                    style: ElevatedButton.styleFrom(
+                                      shape: RoundedRectangleBorder(
+                                        borderRadius: BorderRadius.circular(50),
+                                      ),
+                                      backgroundColor: const Color(0xff53B175),
+                                    ),
+                                  ),
+                                ],
                               ),
                             ),
                           ],
                         ),
-                      ],
-                    ),
+                      ),
+                      Positioned(
+                        top: 0,
+                        right: 0,
+                        child: IconButton(
+                          onPressed: () {
+                            setState(() {
+                              cart.removeAt(index); // Remove item from cart
+                            });
+                          },
+                          icon: const Icon(
+                            Icons.close,
+                            color: Colors.black,
+                          ),
+                        ),
+                      ),
+                    ],
                   );
                 },
               ),
@@ -277,11 +302,13 @@ class _CartState extends State<Cart> {
                       ),
                       child: TextButton(
                         onPressed: () {
-                          Navigator.push(context,
-                              MaterialPageRoute(builder: (context) => Last()));
+                          Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                  builder: (context) => Checkout()));
                         },
                         child: Text(
-                          'Place Order',
+                          'CONTINUE TO BILLING',
                           style: GoogleFonts.poppins(
                             fontWeight: FontWeight.w600,
                             fontSize: 18,

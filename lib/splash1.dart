@@ -1,5 +1,4 @@
 import 'package:desimart/splash2.dart';
-
 import 'package:flutter/material.dart';
 
 class Splash1 extends StatefulWidget {
@@ -19,9 +18,16 @@ class _Splash1State extends State<Splash1> {
     });
   }
 
+  @override
   Widget build(BuildContext context) {
+    double screenWidth = MediaQuery.of(context).size.width; // Get screen width
     return Scaffold(
-      body: Image.asset('assets/1.png'),
+      body: SizedBox.expand(
+        child: Image.asset(
+          'assets/1.png',
+          fit: BoxFit.cover, // Make the image cover the entire screen
+        ),
+      ),
     );
   }
 }
