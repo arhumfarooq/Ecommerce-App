@@ -1,5 +1,6 @@
+import 'package:desimart/forget.dart';
 import 'package:desimart/screen2/navigation.dart';
-import 'package:desimart/sign.dart';
+//import 'package:desimart/sign.dart';
 import 'package:desimart/signup.dart';
 import 'package:desimart/utils/utils.dart';
 import 'package:firebase_auth/firebase_auth.dart';
@@ -182,7 +183,12 @@ class _LoginState extends State<Login> {
                     Align(
                       alignment: Alignment.centerRight,
                       child: TextButton(
-                        onPressed: () {},
+                        onPressed: () {
+                          Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                  builder: (context) => Forget()));
+                        },
                         child: Text(
                           'Forgot password?',
                           style: GoogleFonts.poppins(

@@ -1,5 +1,6 @@
+import 'package:desimart/forget.dart';
 import 'package:desimart/login.dart';
-import 'package:desimart/practice/post.dart';
+//import 'package:desimart/practice/post.dart';
 import 'package:desimart/screen2/cart.dart';
 import 'package:desimart/screen2/checkout.dart';
 import 'package:desimart/screen2/explore.dart';

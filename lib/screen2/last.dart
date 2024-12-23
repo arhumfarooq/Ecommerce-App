@@ -32,7 +32,7 @@ class Last extends StatelessWidget {
                   color: Color(0xffC7C7C7)),
             ),
             SizedBox(
-              height: 250,
+              height: 230,
             ),
             Center(
               child: Container(

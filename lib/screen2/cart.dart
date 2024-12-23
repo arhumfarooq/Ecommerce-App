@@ -23,6 +23,14 @@ class _CartState extends State<Cart> {
     super.initState();
   }
 
+  int calculateTotalQuantity() {
+    int totalQuantity = 0;
+    for (int i = 0; i < cart.length; i++) {
+      totalQuantity += cart[i].quantity; // Add quantity of each item
+    }
+    return totalQuantity;
+  }
+
   double calculateTotalPrice() {
     double total = 0.0;
     for (int i = 0; i < cart.length; i++) {
@@ -162,11 +170,15 @@ class _CartState extends State<Cart> {
           Container(
             height: 350,
             width: double.infinity,
-            decoration: const BoxDecoration(
+            decoration: BoxDecoration(
               color: Colors.white,
-              borderRadius: BorderRadius.only(
+              borderRadius: const BorderRadius.only(
                 topLeft: Radius.circular(20),
                 topRight: Radius.circular(20),
+              ),
+              border: Border.all(
+                color: Colors.grey.withOpacity(0.2), // Border ka color
+                width: 2.0, // Border ki width
               ),
             ),
             child: SingleChildScrollView(
@@ -200,23 +212,15 @@ class _CartState extends State<Cart> {
                             color: const Color(0xffC7C7C7),
                           ),
                         ),
-                        const SizedBox(width: 120),
+                        const SizedBox(width: 140),
                         Expanded(
                           child: Text(
-                            "Select Method",
+                            "Cash on Delivery",
                             style: GoogleFonts.poppins(
                               color: Colors.black,
                               fontSize: 18,
                               fontWeight: FontWeight.w600,
                             ),
-                          ),
-                        ),
-                        IconButton(
-                          onPressed: () {},
-                          icon: const Icon(
-                            Icons.arrow_forward_ios_rounded,
-                            color: Colors.black,
-                            size: 20,
                           ),
                         ),
                       ],
@@ -230,30 +234,22 @@ class _CartState extends State<Cart> {
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: [
                         Text(
-                          "Promo Code",
+                          "Quantity",
                           style: GoogleFonts.poppins(
                             fontSize: 18,
                             fontWeight: FontWeight.w600,
                             color: const Color(0xffC7C7C7),
                           ),
                         ),
-                        const SizedBox(width: 83),
+                        const SizedBox(width: 170),
                         Expanded(
                           child: Text(
-                            "Pick Discount",
+                            '${calculateTotalQuantity()}',
                             style: GoogleFonts.poppins(
                               color: Colors.black,
                               fontSize: 18,
                               fontWeight: FontWeight.w600,
                             ),
-                          ),
-                        ),
-                        IconButton(
-                          onPressed: () {},
-                          icon: const Icon(
-                            Icons.arrow_forward_ios_rounded,
-                            color: Colors.black,
-                            size: 20,
                           ),
                         ),
                       ],
@@ -265,7 +261,7 @@ class _CartState extends State<Cart> {
                     padding: const EdgeInsets.symmetric(horizontal: 20),
                     child: Row(
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                      crossAxisAlignment: CrossAxisAlignment.end,
+                      // crossAxisAlignment: CrossAxisAlignment.end,
                       children: [
                         Text(
                           "Total Cost",
@@ -279,6 +275,7 @@ class _CartState extends State<Cart> {
                           width: 200,
                         ),
                         Expanded(
+                          flex: 2,
                           child: Text(
                             '\$${calculateTotalPrice().toStringAsFixed(2)}',
                             style: GoogleFonts.poppins(
